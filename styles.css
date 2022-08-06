@@ -26,7 +26,7 @@ body {
 
 #calculator #output {
     border: solid 2px silver;
-    height: 92px;
+    height: 96px;
 }
 
 #calculator #display, #calculator #cached {
