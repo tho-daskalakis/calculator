@@ -30,6 +30,7 @@ body {
     background-color: black;
     color: limegreen;
     text-align: end;
+    padding: 1%;
 }
 
 #calculator #buttons {
