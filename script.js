@@ -45,7 +45,7 @@ function updateCached(value) {
 const clear = calculator.querySelector('#clear');
 
 clear.addEventListener('click', e => {
-    display.textContent = '0';
+    init();
 });
 
 // Dot
@@ -55,6 +55,27 @@ dot.addEventListener('click', e => {
     if (!display.textContent.includes('.')) {
         display.textContent += '.';
     }
+});
+
+// DEL
+
+const del = calculator.querySelector('#del');
+
+del.addEventListener('click', e => {
+    const currentNumber = display.textContent;
+
+    if (currentNumber === '0') {
+        return;
+    }
+
+    if (currentNumber.length === 1) {
+        display.textContent = '0';
+        return;
+    }
+
+    const length = display.textContent.length;
+
+    display.textContent = display.textContent.slice(0, length - 1);
 });
 
 // Operations
@@ -79,8 +100,16 @@ const equals = calculator.querySelector('#equals');
 
 equals.addEventListener('click', e => {
     if (operator !== null) {
-        display.textContent = 
-            operate(operator, cachedNumber, display.textContent);
+        const currentNumber = parseFloat(display.textContent);
+        const result = operate(operator, cachedNumber, currentNumber);
+
+        if (result.toString().length < 13) {
+            display.textContent = result;
+        }
+        else {
+            display.textContent = result.toFixed(10);
+        }
+
         reset();
         }
     });
@@ -105,6 +134,7 @@ digits.forEach(digit => digit.addEventListener('click', e => {
 function init() {
     display.textContent = '0';
     cachedDisplay.textContent = '0';
+    cachedNumber = 0;
     operator = null;
 }
 

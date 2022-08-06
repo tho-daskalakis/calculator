@@ -58,6 +58,7 @@ body {
 
 #calculator button:hover {
     background-color: bisque;
+    color: black;
 }
 
 #equals {
@@ -67,5 +68,10 @@ body {
 
 #clear {
     background-color: crimson;
+    color: aliceblue;
+}
+
+#del {
+    background-color: darkcyan;
     color: aliceblue;
 }
