@@ -27,13 +27,18 @@ body {
     border: solid 2px silver;
     font-family: 'Orbitron', sans-serif;
     min-height: 24px;
-    background-color: aquamarine;
+    background-color: black;
+    color: limegreen;
     text-align: end;
 }
 
 #calculator #buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+}
+
+#calculator #buttons div {
+    background-color: silver;
 }
 
 #calculator button {
@@ -48,4 +53,10 @@ body {
 
 #equals {
     background-color: coral;
+    color: aliceblue;
+}
+
+#clear {
+    background-color: crimson;
+    color: aliceblue;
 }
