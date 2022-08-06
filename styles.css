@@ -1,0 +1,50 @@
+body {
+    margin: 0%;
+    height: 100vh;
+    display: block;
+}
+
+.centered {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#container {
+    margin-top: 10vh;
+    font-size: 46px;
+}
+
+#calculator {
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    width: 460px;
+    margin: auto;
+}
+
+#calculator #display {
+    border: solid 2px silver;
+    font-family: 'Orbitron', sans-serif;
+    min-height: 24px;
+    background-color: aquamarine;
+}
+
+#calculator #buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#calculator button {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 26px;
+    border: solid 2px silver;
+}
+
+#calculator button:hover {
+    background-color: bisque;
+}
+
+#equals {
+    background-color: coral;
+}
