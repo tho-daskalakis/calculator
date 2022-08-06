@@ -85,13 +85,26 @@ let operator = null;
 
 operators.forEach(oper => oper.addEventListener('click', e => {
     if (display.textContent !== '0') {
-        operator = e.target.textContent;
+        const currentNumber = display.textContent;
         
-        cachedNumber = display.textContent;
+        if (cachedNumber !== 0) {
+            cachedNumber = operate(operator, cachedNumber, currentNumber);
 
-        updateCached(cachedNumber + operator);
+            operator = e.target.textContent;
+            
+            updateCached(cachedNumber + operator);
+            
+            display.textContent = '0';
+        }
+        else {
+            operator = e.target.textContent;
 
-        display.textContent = '0';
+            cachedNumber = display.textContent;
+    
+            updateCached(cachedNumber + operator);
+    
+            display.textContent = '0';
+        }
     }
 }));
 
