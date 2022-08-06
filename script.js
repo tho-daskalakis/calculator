@@ -18,21 +18,37 @@ function operate(operator, a, b) {
             return multiply(a, b);
         case '/':
             return divide(a, b);
-    }
+        }
 }
+
 
 // Calculator
 const calculator = document.querySelector('#calculator');
-console.log(calculator);
 
+// Display
 const display = calculator.querySelector('#display');
-console.log(display);
 
-const buttons = [...calculator.querySelectorAll('#buttons button')];
-console.log(buttons);
+const DISPLAY_LENGTH = 13;
 
 // Button funcionality
+const digits = [...calculator.querySelectorAll('#buttons button.digit')];
 
-buttons.forEach(button => button.addEventListener('click', e => {
-    display.textContent = e.target.textContent;
+digits.forEach(digit => digit.addEventListener('click', e => {
+    if (display.textContent === '0') {
+        display.textContent = '';
+    }
+
+    if (display.textContent.length === DISPLAY_LENGTH) {
+        return;
+    }
+
+    display.textContent += e.target.textContent;
 }));
+
+// Initialization
+
+function init() {
+    display.textContent = '0';
+}
+
+init();
